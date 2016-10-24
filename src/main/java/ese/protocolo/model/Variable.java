@@ -6,20 +6,26 @@ import java.time.LocalDateTime;
  * Created by francisco on 10/22/16.
  */
 public class Variable {
-    private LocalDateTime timestamp;
-    private int value;
+    private String timestamp;
+    private double value;
+    private String img;
 
-    public Variable(LocalDateTime timestamp, int valor) {
+    public Variable(String timestamp, double valor) {
         this.timestamp = timestamp;
         this.value = valor;
+        this.img = "/assets/sensor.png";
     }
 
-    public LocalDateTime getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
+    }
+
+    public String getImg() {
+        return img;
     }
 
     @Override

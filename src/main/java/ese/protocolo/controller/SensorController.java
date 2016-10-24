@@ -3,10 +3,7 @@ package ese.protocolo.controller;
 import ese.protocolo.model.Variable;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -20,16 +17,22 @@ public class SensorController {
 
     private List<Variable> list = new ArrayList<>();
 
+    //@CrossOrigin(origins = "*")
     @RequestMapping(method = RequestMethod.POST, path = "/values")
-    public ResponseEntity<Integer> add(@RequestBody Integer value){
-        Variable e = new Variable(LocalDateTime.now(), value);
+    public ResponseEntity<Double> add(@RequestBody Double value){
+        Variable e = new Variable(LocalDateTime.now().toString(), value);
         list.add(e);
         return ResponseEntity.ok(e.getValue());
     }
 
+    //@CrossOrigin(origins = "*")
     @RequestMapping(method = RequestMethod.GET, path = "/values")
     public ResponseEntity<List<Variable>> list(){
-        return ResponseEntity.ok(list);
+        List<Variable> newList = new ArrayList<>();
+        for(int i = 0; i < list.size(); i++){
+            newList.add(list.get(list.size() - 1 - i));
+        }
+        return ResponseEntity.ok(newList);
     }
 
 }
