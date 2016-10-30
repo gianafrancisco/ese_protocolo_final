@@ -52566,10 +52566,11 @@ var ItemComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return Sensor; });
 var Sensor = (function () {
-    function Sensor(timestamp, value, img) {
+    function Sensor(timestamp, value, img, id) {
         this.timestamp = timestamp;
         this.value = value;
         this.img = img;
+        this.id = id;
     }
     return Sensor;
 }());
@@ -55689,7 +55690,7 @@ module.exports = "<div class=\"panel panel-default\">\n  <div class=\"panel-head
 /* 598 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"media\">\n  <div class=\"media-left\">\n    <a href=\"#\">\n      <img class=\"media-object\" src=\"{{sensor.img}}\" alt=\"sensor\">\n    </a>\n  </div>\n  <div class=\"media-body\">\n    <h4 class=\"media-heading\">Valor almacenado: {{sensor.value}}</h4>\n    <hr>\n    Fecha y hora: {{sensor.timestamp}}\n  </div>\n</div>\n<hr>\n"
+module.exports = "<div class=\"media\">\n  <div class=\"media-left\">\n    <a href=\"#\">\n      <img class=\"media-object\" src=\"{{sensor.img}}\" alt=\"sensor\">\n    </a>\n  </div>\n  <div class=\"media-body\">\n    <h4 class=\"media-heading\">Sensor Id: {{sensor.id}}</h4>\n    <h4 class=\"media-heading\">Valor almacenado: {{sensor.value}}</h4>\n    <hr>\n    Fecha y hora: {{sensor.timestamp}}\n  </div>\n</div>\n<hr>\n"
 
 /***/ },
 /* 599 */
