@@ -17,15 +17,20 @@ public class SensorController {
 
     private List<Variable> list = new ArrayList<>();
 
-    //@CrossOrigin(origins = "*")
     @RequestMapping(method = RequestMethod.POST, path = "/values")
-    public ResponseEntity<Double> add(@RequestBody Double value){
-        Variable e = new Variable(LocalDateTime.now().toString(), value);
+    public ResponseEntity<Integer> add(@RequestBody Integer value, @RequestBody Integer sensorId){
+        Variable e = new Variable(LocalDateTime.now().toString(), value, sensorId);
         list.add(e);
         return ResponseEntity.ok(e.getValue());
     }
 
-    //@CrossOrigin(origins = "*")
+    @RequestMapping(method = RequestMethod.GET, path = "/values", params = {"val", "sensorId"})
+    public ResponseEntity<Integer> getAdd(@RequestParam("val") Integer value, @RequestParam("sensorId") Integer sensorId){
+        Variable e = new Variable(LocalDateTime.now().toString(), value, sensorId);
+        list.add(e);
+        return ResponseEntity.ok(e.getValue());
+    }
+
     @RequestMapping(method = RequestMethod.GET, path = "/values")
     public ResponseEntity<List<Variable>> list(){
         List<Variable> newList = new ArrayList<>();

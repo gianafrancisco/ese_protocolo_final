@@ -7,21 +7,27 @@ import java.time.LocalDateTime;
  */
 public class Variable {
     private String timestamp;
-    private double value;
+    private int id;
+    private int value;
     private String img;
 
-    public Variable(String timestamp, double valor) {
+    public Variable(String timestamp, int valor, int id) {
         this.timestamp = timestamp;
         this.value = valor;
         this.img = "/assets/sensor.png";
+        this.id = id;
     }
 
     public String getTimestamp() {
         return timestamp;
     }
 
-    public double getValue() {
+    public int getValue() {
         return value;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getImg() {
